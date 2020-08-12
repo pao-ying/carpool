@@ -1,0 +1,208 @@
+@import '../../../utils/util.wxss';
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    display: flex;
+    margin-left: 80rpx;
+    margin-top: 20rpx;
+    justify-content: space-between;
+    height: 100rpx;
+    /* border: 1rpx solid; */
+}
+
+.time-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10rpx;
+    height: 80rpx;
+    /* border: 1rpx solid; */
+}
+
+.time {
+    opacity: 0.38;
+    font-size: 24rpx;
+    letter-spacing: 0.68rpx;
+}
+
+.two-icon {
+    display: flex;
+    width: 250rpx;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 1rpx solid; */
+}
+
+.words-area {
+    display: flex;
+    margin-top: 40rpx;
+    margin-left: 40rpx;
+    /* border: 1rpx solid; */
+}
+
+.left-words {
+    display: flex;
+    height: 100rpx;
+    width: 670rpx;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.right-words {
+    display: flex;
+    height: 100rpx;
+    width: 670rpx;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.middle-words {
+    font-size: 50rpx;
+    font-weight: bold;
+}
+
+.middle-direction {
+    position: relative;
+    top: -100rpx;
+    width: 670rpx;
+    left: 40rpx;
+}
+
+.change-icon {
+    display: flex;
+    height: 100rpx;
+    /* border: 1rpx solid; */
+}
+
+.swiper-area {
+    display: flex;
+    margin-left: 50rpx;
+    margin-top: -100rpx;
+    height: 700rpx;
+    width: 650rpx;
+    /* border: 1rpx solid ; */
+}
+
+.swiper-limit-area {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+    margin-left: 25rpx;
+    height: 600rpx;
+    width: 600rpx;
+    box-shadow: 2rpx 12rpx 18rpx 4rpx rgba(130,130,130,0.50);
+    border-radius: 32rpx;
+    border-radius: 32rpx;
+}
+
+.location-name {
+    font-size: 48rpx;
+    letter-spacing: 14rpx;
+}
+
+.location-area {
+    font-size: 24rpx;
+    letter-spacing: 4rpx;
+    opacity: 0.66;
+}
+
+.location-distance-time {
+    font-size: 24rpx;
+    letter-spacing: 4rpx;
+    opacity: 0.66;
+    position: relative;
+    top: 60rpx;
+}
+
+
+.date-time-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50rpx;
+    width: 650rpx;
+    box-shadow: 2rpx 12rpx 30rpx 4rpx rgba(130,130,130,0.50);
+    border-radius: 32rpx;
+    border-radius: 32rpx;
+}
+
+.date-area {
+    display: flex;
+    flex-direction: row;
+    width: 600rpx;
+    height: 100rpx;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1rpx solid #979797;
+}
+
+.date-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 500rpx;
+    /* border: 1rpx solid; */
+}
+
+.date-words {
+    opacity: 0.76;
+    font-size: 32rpx;
+    letter-spacing: 0.92rpx;
+}
+
+.select-time-area {
+    display: flex;
+    flex-direction: row;
+    width: 600rpx;
+    height: 100rpx;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.time-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 500rpx;
+}
+
+.time-words {
+    opacity: 0.76;
+    font-size: 32rpx;
+    letter-spacing: 0.92rpx;
+}
+
+.search-button {
+    display: flex;
+    margin-left: 75rpx;
+    margin-top: 40rpx;
+    width: 600rpx;
+    height: 68rpx;
+    background: #17A085;
+    box-shadow: 0 4rpx 10rpx 4rpx #17A085;
+    border-radius: 28rpx;
+    border-radius: 28rpx;
+}
+
+.search-words {
+    font-size: 42rpx;
+    letter-spacing: 11.18rpx;
+}

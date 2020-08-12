@@ -1,0 +1,81 @@
+<view class="top">
+    <view class="time-area">
+        <view class="time">
+            {{time.year}}年{{time.month}}月{{time.day}}日
+        </view>
+        <view class="time">
+            {{time.week}}
+        </view>
+    </view>
+    <view class="two-icon">
+        <view class="iconfont icon-zhuyi"></view>
+        <view class="iconfont icon-team"></view>
+    </view>
+</view>
+
+<view class="words-area">
+    <block wx:if="{{direction}}">
+        <view class="left-words">
+            <view class="middle-words center" animation="{{leftWordsAni}}">学校到</view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="right-words">
+            <view class="middle-words center" animation="{{rightWordsAni}}">到学校</view>
+        </view> 
+    </block>
+</view>
+
+<view class="middle-direction">
+    <view class="change-icon center">
+        <view class="iconfont icon-zhuanhuan" bind:tap="changeDirection" animation="{{iconAni}}"></view>
+    </view>
+</view>
+
+
+<swiper class="swiper-area" indicator-dots="{{true}}" indicator-color="#17a08570" indicator-active-color="#17A085" circular="true">
+    <block wx:for="{{station}}" wx:key="*this">
+        <swiper-item>
+            <view class="swiper-limit-area center">
+                <view class="iconfont {{item}}"></view>
+                <view class="location-name">{{stationInfo[0][index]}}</view>
+                <view class="location-area">{{stationInfo[1][index]}}</view>
+                <view class="location-distance-time">约{{stationInfo[2][index]}}公里, 打车约{{stationInfo[3][index]}}分钟</view>
+            </view>
+        </swiper-item>
+    </block>
+</swiper>
+
+
+<view class="date-time-area">
+    <view class="date-area">
+        <view class="iconfont icon-rili"></view>
+        <view class="date-flex">
+            <picker mode="date" value="{{minSelectedDate}}" start="{{nowDate}}" end="{{thirtyDaysDate}}" data-id="min" bindchange="bindDateChange">
+                <view class="date-words">{{minSelectedDate}}</view>
+            </picker>
+            <view class="date-words">~</view>
+            <picker mode="date" value="{{maxSelectedDate}}" start="{{minSelectedDate}}" end="{{thirtyDaysDate}}" data-id="max" bindchange="bindDateChange">
+                <view class="date-words">{{maxSelectedDate}}</view>
+            </picker>
+        </view>
+        <view class="iconfont icon-sanjiaoxing1"></view>
+    </view>
+    <view class="select-time-area">
+        <view class="iconfont icon-naozhong"></view>
+        <view class="time-flex">
+            <picker mode="time" value="{{minSelectedTime}}" start="00:00" end="23:59" data-id="min" bindchange="bindTimeChange">
+                <view class="time-words">{{minSelectedTime}}</view>
+            </picker>        
+            <view class="time-words">~</view>
+            <picker mode="time" value="{{maxSelectedTime}}" start="00:00" end="23:59" data-id="max" bindchange="bindTimeChange">
+                <view class="time-words">{{maxSelectedTime}}</view>
+            </picker>
+        </view>
+        <view class="iconfont icon-sanjiaoxing1"></view>
+    </view>
+</view>
+
+<view class="search-button center">
+    <view class="search-words">Next</view>
+</view>
