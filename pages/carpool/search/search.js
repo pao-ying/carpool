@@ -7,6 +7,7 @@ Page({
    */
   data: {
     time: util.nowTime(new Date()),
+    swiperIndex: 0,
     minSelectedTime: util.formatSelectedTime(new Date()),
     maxSelectedTime: util.formatSelectedTime(new Date()),
     minSelectedDate: util.formatDate(new Date()),
@@ -24,6 +25,52 @@ Page({
       [23, 45, 67, 56, 46],   //distance
       [23, 12, 34, 33, 77],   //time
     ],
+  },
+
+  goTeam: function(e) {
+    wx.getStorage({
+      key: 'userID',
+      success(res) {
+        var userID = res.data;
+        wx.request({
+          url: 'http://39.100.192.205:5000/user/team',
+          header: {
+            'Content-Type': 'application/json'
+          },
+          data: {
+            userID: userID
+          },
+          success: function(res) {
+            console.log(res.data)
+            if (!res.data.isTeam) {
+              wx.navigateTo({
+                url: '../team/team?isTeam=0'
+              });
+            } else {
+              wx.navigateTo({
+                url: '../team/team?team=' + JSON.stringify(res.data.team) + 
+                      '&members=' + JSON.stringify(res.data.members) + 
+                      '&notices=' + JSON.stringify(res.data.notices) + 
+                      '&isTeam=1'
+              })
+            }
+
+          }
+        })
+      }
+    })
+  },
+
+  goNotice: function(e) {
+    wx.navigateTo({
+      url: '../notice/notice'
+    })
+  },
+
+  bindSwiperChange: function(e) {
+    this.setData({
+      swiperIndex: e.detail.current
+    })
   },
 
   bindDateChange: function(e) {
@@ -50,6 +97,63 @@ Page({
         maxSelectedTime: e.detail.value
       })
     }
+  },
+
+  searchTeam: function(e) {
+    var data = this.data;
+    var 
+        direction = data.direction,
+        index = data.swiperIndex,
+        stationName = data.stationInfo[0],
+        minTime = data.minSelectedTime,
+        maxTime = data.maxSelectedTime,
+        minDate = data.minSelectedDate,
+        maxDate = data.maxSelectedDate;
+    var
+        startAddress = direction? "学校": stationName[index],
+        endAddress = direction? stationName[index]: "学校";
+    
+    var 
+        startTime = minDate + " " + minTime,
+        endTime = maxDate + " " + maxTime
+    
+    if (new Date(startTime).getTime() > new Date(endTime).getTime()) {
+      wx.showToast({
+        title: '日期或时间错误',
+        image: '../../icon/error.png'
+      })
+    } else {
+      wx.request({
+        url: 'http://39.100.192.205:5000/team/search',
+        header: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          startAddress: startAddress,
+          endAddress: endAddress,
+          startTime: startTime,
+          endTime: endTime
+        },
+        success: function(res) {
+          var info = res.data;
+          console.log(info)
+          if (info.status) {
+            wx.navigateTo({
+              url: '../result/result?info=' + JSON.stringify(info.team)
+            })
+          } else {
+            wx.showToast({
+              title: '格式出错',
+              image: '../../icon/error.png'
+            })
+          }
+          
+          
+        }
+      })
+    }
+
+    
   },
 
   changeDirection: function() {

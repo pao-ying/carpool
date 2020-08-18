@@ -1,0 +1,45 @@
+<view class="total">
+    <view class="info-area">
+        <view class="info-words-area center">
+            <view class="info-words">开始时间</view>
+        </view>
+        <picker mode="date" value="{{firstDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="firstDateChange">
+            <view class="info-date-area center">
+                <view class="info-date-border center">
+                    <view class="info-date">{{firstDate}}</view>
+                </view>
+            </view>
+        </picker>
+        <picker mode="time" value="{{firstTime}}" start="{{startTime}}" end="{{endTime}}" bindchange="firstTimeChange">
+            <view class="info-time-area center">
+                <view class="info-time-border center">
+                    <view class="info-time">{{firstTime}}</view>
+                </view>
+            </view>
+        </picker>
+    </view>
+
+    <view class="info-area">
+        <view class="info-words-area center">
+            <view class="info-words">截止时间</view>
+        </view>
+        <picker mode="date" value="{{secondDate}}" start="{{firstDate}}" end="{{endDate}}" bindchange="secondDateChange">
+            <view class="info-date-area center">
+                <view class="info-date-border center">
+                    <view class="info-date">{{secondDate}}</view>
+                </view>
+            </view>
+        </picker>
+        <picker mode="time" value="{{secondTime}}" start="{{startTime}}" end="{{endTime}}" bindchange="secondTimeChange">
+            <view class="info-time-area center">
+                <view class="info-time-border center">
+                    <view class="info-time">{{secondTime}}</view>
+                </view>
+            </view>
+        </picker>
+    </view>
+</view>
+
+<view class="button-area center" bind:tap="confirmDate">
+    <view class="button">确认</view>
+</view>

@@ -7,38 +7,34 @@ Page({
   data: {
 
   },
+  login: function(e) {
+    console.log(e)
+  },
+
   bindGetUserInfo: function(e) {
-    var authorized = e.currentTarget.dataset.authorized;
-    if (!authorized) {
-      wx.getStorage({
-        key: 'userId',
-        success (res) {
-          var userId = res.data;
-          wx.request({
-            url: 'http://127.0.0.1:5000/user/img',
-            data: {
-              imgUrl: e.detail.userInfo.avatarUrl,
-              userID: userId
-            },
-            success (res) {
-              var re = res.data;
-              if (re === "add img success") {
-                wx.navigateTo({
-                  url: '../carpool/search/search'
-                })
-              }
+    wx.getStorage({
+      key: 'userID',
+      success (res) {
+        console.log(1)
+        var userId = res.data;
+        wx.request({
+          url: 'http://39.100.192.205:5000/user/img',
+          data: {
+            imgUrl: e.detail.userInfo.avatarUrl,
+            userID: userId
+          },
+          success (res) {
+            console.log(2)
+            var re = res.data;
+            if (re === "add img success") {
+              wx.navigateTo({
+                url: '../carpool/search/search'
+              })
             }
-          })
-        }
-      })
-    } else {
-      wx.navigateTo({
-        url: '../carpool/search/search'
-      })
-    }
-    
-    
-    
+          }
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

@@ -1,0 +1,137 @@
+<view class="main-data">
+    <block>
+        <block>
+            <view class="main">
+                <view class="kb-term-title">
+                    <block>
+                        <block wx:if="{{toweek_zh}}">
+                            <picker bindchange="changeWeek" class="kb-term-item" range="{{_weeks}}" value="{{toweek}}">
+                                <text class="kb-term-text">{{'当前:'+toweek_zh}}</text>
+                                <text class="caret"></text>
+                            </picker>
+                            <!---picker bindchange="changeTerm" class="kb-term-item" range="{{term_lists}}" value="{{termIndex}}"--->
+                            <view class="kb-term-iterm">
+                              <text class="kb-term-text">{{term+'学期'}}</text>
+                            </view> 
+                                
+                                <!--text class="caret"></text-->
+                            <!---/picker--->
+                            <view bindtap="nextWeek" class="kb-term-item">下一周</view>
+                        </block>
+                    </block>
+                </view>
+                <block>
+                    <block wx:if="{{toweek_zh!='学期课表'}}">
+                        <view class="kb-title">
+                            <view class="kb-mon kb-date">
+                                <text>{{dates[toweek-1][0].month}}</text>
+                                <text>月</text>
+                            </view>
+                            <block wx:for="{{dates[toweek-1]}}" wx:key="date">
+                                <view class="kb-title-item">
+                                    <text class="kb-date">{{item.date===1?item.month+'月':item.date}}</text>
+                                    <text>周{{_days[index]}}</text>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </block>
+                <block>
+                    <block wx:if="{{blur}}">
+                        <view bindtap="hideDetail" class="kb-detaile-card-ctn">
+                            <block wx:for="{{detailed_class}}" wx:for-index="{{index}}" wx:for-item="card" wx:key="{{index}}">
+                                <view class="kb-card-content-detail">
+                                    <text class="kbc-detail kb-name">{{card.className}}</text>
+                                    <text class="kbc-detail kb-teach">{{card.teacherName}}</text>
+                                    <text class="kbc-detail kb-palce">{{card.classroom}}</text>
+                                    <text class="kbc-detail kb-week">{{card.orgweek}}</text>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </block>
+                <block>
+                    <block wx:if="{{blur}}">
+                        <view bindtap="hideDetail" class="kb-detail"></view>
+                    </block>
+                </block>
+                
+                <view class="kb-ctn {{toweek_zh=='学期课表'?'all-ctn':''}}" style="filter:blur({{blurnum}}px)">
+                    <view class="kb-num-ctn">
+                        <view class="mg-t">1</view>
+                        <view class="mg-8">2</view>
+                        <view>3</view>
+                        <view class="mg-12">4</view>
+                        <view>5</view>
+                        <view class="mg-8">6</view>
+                        <view>7</view>
+                        <view class="mg-12">8</view>
+                        <view>9</view>
+                        <view class="mg-8">10</view>
+                        <view>11</view>
+                        <view>12</view>
+                        <view class="kb-timeline-tri" style="top:{{timelineTop}}rpx"></view>
+                    </view>
+                    <view class="kb-cards-ctn">
+                        <block wx:for="{{classlist}}" wx:for-index="day" wx:for-item="day_lesson" wx:key="day">
+                            <view class="kb-cards-column">
+                                <block>
+                                    <block wx:if="{{today===day}}">
+                                        <view class="kb-bg" style="background:-webkit-gradient(linear,left top,left bottom,from(#eff7ff),color-stop({{(timelineTop+4)/1260}}, #8cc4ff),to(#eff7ff));"></view>
+                                        <view class="kb-timeline" style="display:block;top:{{timelineTop}}rpx"></view>
+                                    </block>
+                                </block>
+                                <block wx:for="{{day_lesson}}" wx:for-index="sector" wx:for-item="cards" wx:key="sector">
+                                    <view class="kb-card {{sector%2==0?'mg-8':'mg-12'}}">
+                                        <view bindtap="showDetail" class="mg-8 kb-card-content" data-day="{{day}}" data-sector="{{sector}}" style="background-color: {{cards[0].className?'#'+'1ABC9C':'#eee'}}">
+                                            <view class="kb-card-item">
+                                                <text class="kb-card-name-text">{{cards[0].className}}</text>
+                                                <block>
+                                                    <block wx:if="{{cards[0].classroom}}">
+                                                        <text class="kb-card-place">{{cards[0].classroom}}</text>
+                                                    </block>
+                                                </block>
+                                                <block>
+                                                    <block wx:if="{{cards.weeksShow}}">
+                                                        <text class="kb-card-person">{{cards[0].orgweek}}</text>
+                                                    </block>
+                                                </block>
+                                                <block>
+                                                    <block wx:if="{{cards[0].teacherName}}">
+                                                        <text class="kb-card-person">{{cards[0].teacherName}}</text>
+                                                    </block>
+                                                </block>
+                                                <block>
+                                                    <block wx:if="{{cards.weeksShow&&cards.extend}}">
+                                                        <text class="kb-card-person">………</text>
+                                                    </block>
+                                                </block>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </block>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                
+                <view class="main-box remark">
+                    <block>
+                        <block wx:if="{{remark}}">
+                            <view class="remark-box">
+                                <view class="label">课表备注</view>
+                                <view class="remark-content">{{remark}}</view>
+                            </view>
+                        </block>
+                    </block>
+                </view>
+            </view>
+        </block>
+    </block>
+    <view class="footer">
+        <view class="footer-data">
+            <view>查询存在延迟，请不要多次重复刷新</view>
+            <view>结果仅供参考，请以教务系统网页为准</view>
+        </view>
+    </view>
+</view>

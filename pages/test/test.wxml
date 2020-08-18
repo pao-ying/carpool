@@ -1,0 +1,2 @@
+<view bind:tap="go">跳转</view>
+<view >{{a}}</view>

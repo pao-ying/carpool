@@ -1,0 +1,45 @@
+
+<view class="top">
+    <view class="top-words">得到了以下队伍：</view>
+</view>
+<view class="total">
+    <block wx:for="{{info}}" wx:key="key" wx:for-index="infoIndex">
+        <view class="team-info" bind:tap="setShow" data-index="{{infoIndex}}">
+            <image class="wx-head" src="{{info[infoIndex].leaderImgUrl}}" />
+            <view class="team-time-date-area center">
+                <view class="team-time-date center">
+                    <view class="team-time">{{info[infoIndex].sTime}}</view>
+                    <view class="team-date">{{info[infoIndex].sDate}}</view>
+                </view>
+                <view class="character">~</view>
+                <view class="team-time-date center">
+                    <view class="team-time">{{info[infoIndex].eTime}}</view>
+                    <view class="team-date">{{info[infoIndex].eDate}}</view>
+                </view>                
+            </view>
+            <view class="sex-area">
+                <view class="sex-area-flex">
+                    <block wx:for="{{info[infoIndex].female}}" wx:key="key">
+                        <view class="iconfont icon-nv"></view>
+                    </block>
+                    <block wx:for="{{info[infoIndex].male}}" wx:key="key">
+                        <view class="iconfont icon-nan"></view>
+                    </block>                    
+                </view>
+            </view>
+            <view class="icon-area">
+                <view class="iconfont icon-jiahao" animation="{{iconAni[infoIndex]}}"></view>
+            </view>
+        </view>
+        <block wx:if="{{show[infoIndex]}}">
+            <view class="team-mark-button center" animation="{{markAni[infoIndex]}}">
+                <view class="team-mark-area center">
+                    <view class="team-mark-words ">
+                        {{info[infoIndex].remark}}
+                    </view>
+                </view>
+                <view class="team-join-button center" bind:tap="joinTeam" data-index="{{infoIndex}}">Join</view>
+            </view>
+        </block>
+    </block>
+</view>

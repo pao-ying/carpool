@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "mp-slideview": "weui-miniprogram/slideview/slideview",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell"
+  },
+  "navigationBarBackgroundColor": "#17BC9B",
+  "navigationBarTitleText": "编辑队伍信息"
+  
+}

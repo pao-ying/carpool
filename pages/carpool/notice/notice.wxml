@@ -1,0 +1,17 @@
+<view class="title">
+    <view class="title-words">用前须知</view>
+</view>
+<view class="content">
+    <view class="every-content"><view class="content-words">1. 用户可自行创建队伍，邀请他人参加；也可自行加入他人的队伍。</view></view>
+    <view class="every-content"><view class="content-words">2. 用户可根据自己所能接受的约车时间期限来创建队伍或者加入队伍。</view></view>
+    <view class="every-content"><view class="content-words">3. 队伍人数上限为4人，下限人数为2人。</view></view>
+    <view class="every-content"><view class="content-words">4. 参与人可以根据队长提供的QQ群号，加入对应的QQ群。</view></view>
+    <view class="every-content"><view class="content-words">4. 队长后续可以编辑队伍信息，但参与者没有此权限</view></view>
+    <view class="every-content"><view class="content-words">1. 若用户加入队伍后，不久队伍消失，可能是队伍已解散或者用户已被请出队伍</view></view>
+</view>
+
+<view class="title"><view class="title-words">注意事项</view></view>
+<view class="content">
+    <view class="every-content"><view class="content-words">1. 小程序已经对该用户进行身份验证，确保是本校的学生。</view></view>
+    <view class="every-content"><view class="content-words">2. 注意个人安全，在加入QQ群后，记得验证其他人的身份信息，确保是本校学生。</view></view>
+</view>

@@ -1,0 +1,1 @@
+<view bind:tap="search">search</view>>

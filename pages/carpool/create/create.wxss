@@ -1,0 +1,308 @@
+/* pages/carpool/create/create.wxss */
+@import '../../../utils/util.wxss';
+page {
+    position: absolute;
+    z-index: -1;
+    background-color: rgb(245, 246, 248)
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.info-area0 {
+    width: 750rpx;
+    height: 200rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30rpx;
+}
+
+.info-every {
+    display: flex;
+    flex-direction: row;
+    height: 100rpx;
+    background-color: white;
+    justify-content: space-between;
+    /* border: 1rpx solid; */
+}
+
+.info-every-hover {
+    display: flex;
+    flex-direction: row;
+    height: 100rpx;
+    background-color: rgb(241, 241, 251);
+    justify-content: space-between;
+}
+
+.info-description-area {
+    width: 150rpx;
+    height: 100rpx;
+    display: flex;
+    /* border: 1rpx solid; */
+}
+
+.info-description {
+    font-size: 30rpx;
+    letter-spacing: 6rpx;
+}
+
+.info-value-area {
+    width: 450rpx;
+    height: 100rpx;
+    
+    display: flex;
+    /* border: 1rpx solid; */
+}
+
+.info-value {
+    font-size: 30rpx;
+    font-weight: bold;
+    letter-spacing: 5rpx;
+}
+
+
+.info-icon {
+    width: 100rpx;
+    height: 100rpx;
+    display: flex;
+    /* border: 1rpx solid; */
+}
+
+.info-date-time-area {
+    width: 450rpx;
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* border: 1rpx solid; */
+}
+
+.date-time-area {
+    width: 150rpx;
+    height: 100rpx;
+    display: flex;
+    flex-direction: column;
+    /* border: 1rpx solid; */
+}
+
+.time-area {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.date-area {
+    font-size: 22rpx;
+    opacity: 0.68;
+}
+
+.icon-to {
+    display: flex;
+    width: 50rpx;
+    height: 100rpx;
+    
+    font-size: 40rpx;
+    font-weight: bold;
+    /* border: 1rpx solid; */
+}
+
+.info-area1 {
+    width: 750rpx;
+    height: 200rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40rpx;   
+}
+
+.info-number-contact {
+    width: 300rpx;
+    height: 75rpx;
+    background-color: #D8D8D8;
+    border-radius: 10rpx;
+    display: flex;
+}
+
+.info-number-before {
+    font-size: 30rpx;
+    opacity: 0.55;
+    letter-spacing: 2rpx;
+}
+
+.info-number {
+    font-size: 30rpx;
+    font-weight: bold;
+    text-align: center;
+}
+
+.team-remark-area {
+    /* height: 600rpx; */
+    display: flex;
+    flex-direction: column;
+}
+
+.remark-words-area {
+    width: 80rpx;
+    height: 80rpx;
+    margin-left: 15rpx;
+    display: flex;
+}
+
+.remark-words {
+    font-size: 28rpx;
+    /* opacity: 0.68; */
+    color: rgb(146, 146, 154);
+}
+
+.remark-content-area {
+    width: 650rpx;
+    height: 200rpx;
+    background-color: #D8D8D8;
+    margin-left: 50rpx;
+    display: flex;
+    align-items: center;
+    border-radius: 20rpx;
+    
+    flex-direction: column;
+    /* border: 1rpx solid; */
+}
+
+.remark-content {
+    display: flex;
+    width: 600rpx;
+    height: 120rpx;
+    margin-top: 30rpx;
+    /* border: 1rpx solid; */
+}
+
+.remark-content-words {
+    width: 600rpx;
+    height: 120rpx;
+    font-size: 28rpx;
+    letter-spacing: 2rpx;
+    /* border: 1rpx solid; */
+}
+
+.remark-sum-area {
+    width: 600rpx;
+    height: 30rpx;
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1rpx solid; */
+}
+
+.remark-sum-words {
+    font-size: 20rpx;
+    color: rgb(176, 178, 188);
+    letter-spacing: 4rpx;
+}
+
+.teammate-area {
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    /* border: 1rpx solid; */
+}
+
+.teammate-words-area {
+    width: 250rpx;
+    height: 80rpx;
+    display: flex;
+    /* border: 1rpx solid; */
+}
+
+.teammate-words {
+    font-size: 28rpx;
+    /* opacity: 0.68; */
+    color: rgb(146, 146, 154);   
+}
+
+.teammate-info-area {
+    width: 750rpx;
+    /* box-shadow: 2rpx 12rpx 20rpx 4rpx rgba(130, 130, 130, 0.50); */
+    /* border-radius: 32rpx; */
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 100rpx; */
+    /* margin-top: 20rpx; */
+}
+
+.teammate-info-slideview {
+    background-color: white;
+}
+
+.teammate-info {
+    width: 650rpx;
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    margin-left: 50rpx;
+    /* justify-content: space-between; */
+    /* border-bottom: 1rpx solid #e2e1e1; */
+    /* border: 1rpx solid; */
+}
+
+.teammate-img-area {
+    width: 100rpx;
+    height: 100rpx;
+    display: flex;
+    /* border: 1rpx solid; */
+}
+
+.teammate-img {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+.teammate-sex-area {
+    width: 40rpx;
+    height: 100rpx;
+    display: flex;
+    align-items: flex-start;
+    /* border: 1rpx solid; */
+}
+
+.teammate-name-area {
+    width: 400rpx;
+    height: 100rpx;
+    display: flex;
+    /* border: 1rpx solid; */
+}
+
+.teammate-name {
+    font-size: 28rpx;
+    letter-spacing: 0.5rpx;
+}
+
+.teammate-identity-area {
+    width: 100rpx;
+    height: 100rpx;
+    display: flex;
+    /* border: 1rpx solid; */
+}
+
+.teammate-identity {
+    font-size: 28rpx;
+    letter-spacing: 0.5rpx;
+}
+
+.icon-del {
+    font-size: 30rpx;
+}
+
+.create-button-area {
+    display: flex;
+    width: 300rpx;
+    height: 100rpx;
+    border-radius: 20rpx;
+    background-color: white;
+    margin-top: 29rpx;
+    margin-left: 225rpx;
+}
+
+.create-button {
+    font-size: 30rpx;
+    letter-spacing: 3.1rpx;
+    color: black;
+}

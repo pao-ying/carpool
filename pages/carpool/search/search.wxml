@@ -8,8 +8,8 @@
         </view>
     </view>
     <view class="two-icon">
-        <view class="iconfont icon-zhuyi"></view>
-        <view class="iconfont icon-team"></view>
+        <view class="iconfont icon-zhuyi" bind:tap="goNotice"></view>
+        <view class="iconfont icon-team" bind:tap="goTeam"></view>
     </view>
 </view>
 
@@ -33,14 +33,14 @@
 </view>
 
 
-<swiper class="swiper-area" indicator-dots="{{true}}" indicator-color="#17a08570" indicator-active-color="#17A085" circular="true">
-    <block wx:for="{{station}}" wx:key="*this">
+<swiper class="swiper-area" indicator-dots="{{true}}" indicator-color="#17a08570" indicator-active-color="#17A085" circular="true" current="{{swiperIndex}}" bindchange="bindSwiperChange">
+    <block wx:for="{{station}}" wx:for-index="locationIndex" wx:key="key">
         <swiper-item>
             <view class="swiper-limit-area center">
-                <view class="iconfont {{item}}"></view>
-                <view class="location-name">{{stationInfo[0][index]}}</view>
-                <view class="location-area">{{stationInfo[1][index]}}</view>
-                <view class="location-distance-time">约{{stationInfo[2][index]}}公里, 打车约{{stationInfo[3][index]}}分钟</view>
+                <view class="icon-feiji-area center"><view class="iconfont {{item}}"></view></view>
+                <view class="location-name">{{stationInfo[0][locationIndex]}}</view>
+                <view class="location-area">{{stationInfo[1][locationIndex]}}</view>
+                <view class="location-distance-time">约{{stationInfo[2][locationIndex]}}公里, 打车约{{stationInfo[3][locationIndex]}}分钟</view>
             </view>
         </swiper-item>
     </block>
@@ -54,7 +54,7 @@
             <picker mode="date" value="{{minSelectedDate}}" start="{{nowDate}}" end="{{thirtyDaysDate}}" data-id="min" bindchange="bindDateChange">
                 <view class="date-words">{{minSelectedDate}}</view>
             </picker>
-            <view class="date-words">~</view>
+            <view class="date-otherwords">~</view>
             <picker mode="date" value="{{maxSelectedDate}}" start="{{minSelectedDate}}" end="{{thirtyDaysDate}}" data-id="max" bindchange="bindDateChange">
                 <view class="date-words">{{maxSelectedDate}}</view>
             </picker>
@@ -67,7 +67,7 @@
             <picker mode="time" value="{{minSelectedTime}}" start="00:00" end="23:59" data-id="min" bindchange="bindTimeChange">
                 <view class="time-words">{{minSelectedTime}}</view>
             </picker>        
-            <view class="time-words">~</view>
+            <view class="time-otherwords">~</view>
             <picker mode="time" value="{{maxSelectedTime}}" start="00:00" end="23:59" data-id="max" bindchange="bindTimeChange">
                 <view class="time-words">{{maxSelectedTime}}</view>
             </picker>
@@ -76,6 +76,6 @@
     </view>
 </view>
 
-<view class="search-button center">
+<view class="search-button center" bind:tap="searchTeam">
     <view class="search-words">Next</view>
 </view>

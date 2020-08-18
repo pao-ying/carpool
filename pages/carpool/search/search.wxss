@@ -1,4 +1,5 @@
 @import '../../../utils/util.wxss';
+/* @import '../team/team' */
 
 .center {
     align-items: center;
@@ -106,20 +107,32 @@
     margin-left: 25rpx;
     height: 600rpx;
     width: 600rpx;
+    /* align-items: center; */
     box-shadow: 2rpx 12rpx 18rpx 4rpx rgba(130,130,130,0.50);
     border-radius: 32rpx;
     border-radius: 32rpx;
+    /* border: 1rpx solid; */
+}
+
+
+.icon-feiji-area {
+    width: 250rpx;
+    height: 250rpx;
+    display: flex;
+    /* border: 1rpx solid; */
 }
 
 .location-name {
     font-size: 48rpx;
     letter-spacing: 14rpx;
+    /* border: 1rpx solid; */
 }
 
 .location-area {
     font-size: 24rpx;
     letter-spacing: 4rpx;
     opacity: 0.66;
+    /* border: 1rpx solid; */
 }
 
 .location-distance-time {
@@ -128,6 +141,7 @@
     opacity: 0.66;
     position: relative;
     top: 60rpx;
+    /* border: 1rpx solid; */
 }
 
 
@@ -167,6 +181,10 @@
     letter-spacing: 0.92rpx;
 }
 
+.date-otherwords {
+    font-size: 32rpx;
+}
+
 .select-time-area {
     display: flex;
     flex-direction: row;
@@ -188,6 +206,10 @@
     opacity: 0.76;
     font-size: 32rpx;
     letter-spacing: 0.92rpx;
+}
+
+.time-otherwords {
+    font-size: 32rpx;
 }
 
 .search-button {

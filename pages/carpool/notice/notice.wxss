@@ -1,0 +1,33 @@
+
+
+.title {
+    width: 700rpx;
+    height: 50rpx;
+    display: flex;
+    margin-top: 30rpx;
+    margin-left: 25rpx;
+    /* border: 1rpx solid; */
+}
+
+.title-words {
+    letter-spacing: 2rpx;
+    font-size: 35rpx;
+    font-weight: bold;
+}
+
+.content {
+    width: 700rpx;
+    margin-top: 10rpx;
+    margin-left: 25rpx;
+}
+
+.every-content {
+    display: flex;
+    margin-bottom: 15rpx;
+}
+
+.content-words {
+    letter-spacing: 2rpx;
+    font-size: 35rpx;
+    text-indent: 40rpx;
+}

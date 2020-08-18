@@ -1,0 +1,126 @@
+<block wx:if="{{isTeam == 1}}">
+    <view class="set-button-area">
+        <view class="set-button-flex">
+            <view class="set-button center" bind:tap="setTeamInfo">
+                <view class="iconfont icon-shezhi1"></view>
+                <view class="set-button-words">设置</view>
+            </view>
+        </view>
+        
+    </view>
+    <view class="team-words-area">
+        <view class="team-words">队伍信息</view>
+    </view>
+    <!-- 起始地，起始时间，队伍人数，联系方式，备注 -->
+    <view class="team-info-area">
+        <view class="team-position-area">
+            <view class="team-position-words center">{{info.startAddress}}</view>
+            <view class="iconfont icon-che"></view>
+            <view class="team-position-words center">{{info.endAddress}}</view>
+        </view>
+        <view class="team-date-time-area">
+            <view class="team-date-time center">
+                <view class="team-time">{{info.minTime}}</view>
+                <view class="team-date">{{info.minDate}}</view>
+            </view>
+            <view class="team-date-time-middle center">~</view>
+            <view class="team-date-time center">
+                <view class="team-time">{{info.maxTime}}</view>
+                <view class="team-date">{{info.maxDate}}</view>
+            </view>
+        </view>
+        <view class="team-contact-area center">
+            <view class="team-contact-iconfont center">
+                <view class="iconfont icon-QQ"></view>
+            </view>
+            <view class="team-contact center">
+                <view class="team-contact-words">{{info.contact}}</view>
+            </view>
+        </view>
+        <view class="team-remark-area center">
+            <view class="team-remark">
+                <view class="team-remark-words">{{info.remark}}</view>
+            </view>
+        </view>
+        <view class="team-sex-number-exit">
+            <view class="team-exit-area center" hover-class="team-exit-area-hover" bind:tap="exitTeam">
+                <view class="iconfont icon-tuichu"></view>
+                <view class="team-exit-words">退出</view>
+            </view>
+            <view class="team-sex-number">
+                <view class="team-number center">
+                    <view class="team-number-words">
+                        {{info.nowNumbers}}/{{info.numbers}}
+                    </view>
+                </view>
+                <view class="team-sex">
+                    <block wx:for="{{info.male}}" wx:key="key">
+                        <view class="iconfont icon-nan"></view>
+                    </block>
+                    <block wx:for="{{info.female}}" wx:key="key">
+                        <view class="iconfont icon-nv"></view>
+                    </block>
+                </view>
+            </view>
+
+        </view>
+    </view>
+    <!-- 队伍成员 -->
+    <view class="teammate-words-area">
+        <view class="teammate-words">队伍成员</view>
+    </view>
+    <!-- 头像，性别，名字，身份 -->
+    <view class="teammate-info-area center">
+        <block wx:for="{{members}}" wx:key="key">
+            <view class="teammate-info">
+                <view class="teammate-img-area center"><image src="{{members[index].imgUrl}}" class="teammate-img" /></view>
+                <view class="teammate-sex-area">
+                    <block wx:if="{{members[index].sex=='男'}}"><view class="iconfont icon-nan"></view></block>
+                    <block wx:else><view class="iconfont icon-nv"></view></block>
+                </view>
+                <view class="teammate-name-area center"><view class="teammate-name">{{members[index].name}}</view></view>
+                <view class="teammate-identity-area center">
+                    <block wx:if="{{members[index].isLeader}}"><view class="teammate-identity">组织人</view></block>
+                    <block wx:else><view class="teammate-identity">参与人</view></block>
+                </view>
+            </view>
+        </block>
+    </view>
+    <!-- 队伍通知 -->
+    <view class="notice-words-area">
+        <view class="notice-words">队伍通知</view>
+    </view>
+    <view class="team-notice-area">
+        <block wx:for="{{notices}}" wx:key="key">
+            <view class="team-notice">
+                <view class="notice-img-area center"><image src="{{notices[index].imgUrl}}" class="notice-img" /></view>
+                <view class="notice-type-area">
+                    <view class="notice-type-words">
+                        <block wx:if="{{notices[index].type==0}}">修改了时间</block>
+                        <block wx:elif="{{notices[index].type==1}}">修改了地址</block>
+                        <block wx:elif="{{notices[index].type==2}}">修改需求人数</block>
+                        <block wx:elif="{{notices[index].type==3}}">修改了联系群号</block>
+                        <block wx:elif="{{notices[index].type==4}}">修改了备注</block>
+                        <block wx:elif="{{notices[index].type==5}}">加入了该队伍</block>
+                        <block wx:else>退出了该队伍</block>
+                    </view>
+                </view>
+                <view class="notice-time-area">
+                    <view class="notice-time-words">{{notices[index].createTime}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+</block>
+<block wx:else>
+    <view class="background-area">
+        <view class="iconfont icon-zhifeiji"></view>
+    </view>
+    <view class="create-button-area">
+        <view class="create-button" bind:tap="createTeam">
+            <view class="create-button-flex">
+                <view class="create-button-words">创建队伍</view>
+            </view>  
+        </view>
+    </view>
+</block>

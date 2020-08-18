@@ -1,8 +1,22 @@
 {
   "pages":[
+    "pages/login/login",   
     "pages/carpool/search/search",
-    "pages/login/login",
+    "pages/carpool/notice/notice",
     
+
+    "pages/test/test",
+    "pages/test/test0/test0",
+
+    
+    "pages/carpool/create/create",
+    
+    
+    "pages/carpool/result/result",
+    "pages/carpool/create/datetime/datetime", 
+    
+    "pages/carpool/team/team",
+    "pages/kcb/kcb",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -13,5 +27,8 @@
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
 }

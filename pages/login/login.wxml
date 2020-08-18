@@ -1,6 +1,2 @@
-<block wx:if="{{authorized}}">
-  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" data-authorized="{{authorized}}">拼车</button>
-</block>
-<block wx:else>
-  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" data-authorized="{{authorized}}">拼车</button>
-</block>
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" data-authorized="{{authorized}}">拼车</button>
+

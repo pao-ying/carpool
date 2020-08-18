@@ -1,0 +1,114 @@
+<!-- 起始地，起始时间，需求人数，联系方式，备注 -->
+<view class="info-area0">
+    <picker mode="multiSelector" bindchange="bindMultiChange" bindcolumnchange="bindMultiColumnChange" value="{{addressIndex}}" range="{{addressArray}}">
+        <view class="info-every" hover-class="info-every-hover">
+            <view class="info-description-area center">
+                <view class="info-description">地址</view>
+            </view>
+            <view class="info-value-area center">
+                <view class="info-value">{{addressArray[0][addressIndex[0]]}} - {{addressArray[1][addressIndex[1]]}}</view>
+            </view>
+            <view class="info-icon center"><view class="iconfont icon-jiantou-copy"></view></view>
+        </view>
+    </picker>
+    
+
+    <view class="info-every" hover-class="info-every-hover" bind:tap="setDateTime">
+        <view class="info-description-area center">
+            <view class="info-description">时间</view>
+        </view>
+        <view class="info-date-time-area">
+            <view class="date-time-area center">
+                <view class="time-area">{{minTime}}</view>
+                <view class="date-area">{{minDate}}</view>
+            </view>
+            <view class="icon-to center">~</view>
+            <view class="date-time-area center">
+                <view class="time-area">{{maxTime}}</view>
+                <view class="date-area">{{maxDate}}</view>
+            </view>
+        </view>
+        <view class="info-icon center" bind:tap="timeSet"><view class="iconfont icon-jiantou"></view></view>
+    </view>
+</view>
+
+<view class="info-area1">
+    <picker mode="selector" value="{{numbersIndex}}" range="{{numbersArray}}" bindchange="numbersChange">
+        <view class="info-every" bind:tap="getInputFocus" data-id="number" hover-class="info-every-hover">
+            <view class="info-description-area center">
+                <view class="info-description">需求人数</view>
+            </view>
+            <view class="info-value-area center">
+                <view class="info-number-contact center">
+                    <block wx:if="{{numberInput}}">
+                        <view class="info-number">{{numbersArray[numbersIndex]}}</view>
+                    </block>
+                    <block wx:else>
+                        <view class="info-number-before">包括自己</view>
+                    </block>
+                </view>
+            </view>
+            <view class="info-icon center"><view class="iconfont icon-jiantou-copy"></view></view>
+        </view>       
+    </picker>
+
+
+    <view class="info-every" bind:tap="getInputFocus" data-id="contact" hover-class="info-every-hover">
+        <view class="info-description-area center">
+            <view class="info-description">QQ群号</view>
+        </view>
+        <view class="info-value-area center">
+            <view class="info-number-contact center">
+                <input focus="{{contactInputFocus}}" bindinput="setContact" class="info-number" type="number" value="{{contact}}" maxlength="10" />
+            </view>
+        </view>
+        <view class="info-icon center"><view class="iconfont icon-jiantou-copy"></view></view>
+    </view>
+</view>
+
+<view class="team-remark-area">
+    <view class="remark-words-area center">
+        <view class="remark-words">备注</view>
+    </view>
+    <view class="remark-content-area" bind:tap="getInputFocus" data-id="remark">
+        <view class="remark-content">
+            <textarea focus="{{remarkInputFocus}}" bindinput="getRemarkSum" value="{{remark}}" maxlength="50" class="remark-content-words"></textarea>
+        </view>
+        <view class="remark-sum-area">
+            <view class="remark-sum-words">{{remarkSum}}/50</view>
+        </view>
+    </view>
+</view>
+
+<block wx:if="{{isTeam}}">
+    <view class="teammate-area">
+        <view class="teammate-words-area center">
+            <view class="teammate-words">参与人(左滑删除)</view>
+        </view>
+        <view class="teammate-info-area">
+            <block wx:for="{{members}}" wx:key="key">
+                <block wx:if="{{!members[index].isLeader}}">
+                    <mp-slideview class="teammate-info-slideview" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-id="{{index}}">           
+                        <view class="teammate-info">
+                            <view class="teammate-img-area center"><image src="{{members[index].imgUrl}}" class="teammate-img" /></view>
+                            <view class="teammate-sex-area">
+                                <block wx:if="{{members[index].sex=='男'}}"><view class="iconfont icon-nan"></view></block>
+                                <block wx:else><view class="iconfont icon-nv"></view></block>
+                            </view>
+                            <view class="teammate-name-area center"><view class="teammate-name">{{members[index].name}}</view></view>
+                            <view class="teammate-identity-area center">
+                                <block wx:if="{{members[index].isLeader}}"><view class="teammate-identity">组织人</view></block>
+                                <block wx:else><view class="teammate-identity">参与人</view></block>
+                            </view>
+                        </view>
+                    </mp-slideview>
+                </block>
+            </block>
+        </view>
+    </view>    
+</block>
+<block wx:else>
+    <view class="create-button-area center" bind:tap="createTeam">
+        <view class="create-button">创建队伍</view>
+    </view>
+</block>
