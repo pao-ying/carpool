@@ -5,8 +5,6 @@
     "pages/carpool/notice/notice",
     "pages/login/login",   
 
-    "pages/test/test",
-    "pages/test/test0/test0",
 
     
     "pages/carpool/create/create",
@@ -16,9 +14,7 @@
     "pages/carpool/create/datetime/datetime", 
     
     "pages/carpool/team/team",
-    "pages/kcb/kcb",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/kcb/kcb"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,5 +1,5 @@
 // pages/carpool/create/create.js
-var util = require('../../../utils/util.js')
+var util = require('../utils/util.js')
 Page({
 
   /**
@@ -145,7 +145,7 @@ Page({
                     }
                     wx.showToast({
                       title: title,
-                      image: '../../icon/error.png'
+                      image: '../icon/error.png'
                     })
                   } else {
                     var members = that.data.members;
@@ -172,12 +172,12 @@ Page({
     if (!data.numberInputFocus) {
       wx.showToast({
         title: '需求人数未填',
-        image: '../../icon/error.png'
+        image: '../icon/error.png'
       })
     } else if (data.contact == undefined) {
       wx.showToast({
         title: '联系方式未填',
-        image: '../../icon/error.png'
+        image: '../icon/error.png'
       })
     } else {
       return new Promise(function (resolve, reject) {

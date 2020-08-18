@@ -1,5 +1,5 @@
 // pages/carpool/search/search.js
-var util = require('../../../utils/util.js')
+var util = require('../utils/util.js')
 Page({
 
   /**
@@ -138,7 +138,7 @@ Page({
     if (new Date(startTime).getTime() > new Date(endTime).getTime()) {
       wx.showToast({
         title: '日期或时间错误',
-        image: '../../icon/error.png'
+        image: '../icon/error.png'
       })
     } else {
       wx.request({
@@ -162,7 +162,7 @@ Page({
           } else {
             wx.showToast({
               title: '格式出错',
-              image: '../../icon/error.png'
+              image: '../icon/error.png'
             })
           }
           

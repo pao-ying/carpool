@@ -1,5 +1,5 @@
 // pages/carpool/create/datetime/datetime.js
-var util = require('../../../../utils/util.js')
+var util = require('../../utils/util.js')
 Page({
 
   /**
@@ -54,7 +54,7 @@ Page({
     } else {
       wx.showToast({
         title: '时间大小错误',
-        image: '../../../icon/error.png'
+        image: '../../icon/error.png'
       })
     }  
   },

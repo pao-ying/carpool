@@ -1,5 +1,5 @@
 /* pages/carpool/create/create.wxss */
-@import '../../../utils/util.wxss';
+@import '../utils/util.wxss';
 page {
     position: absolute;
     z-index: -1;

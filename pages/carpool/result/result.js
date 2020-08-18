@@ -1,4 +1,4 @@
-var util = require('../../../utils/util.js')
+var util = require('../utils/util.js')
 Page({
 
   /**
@@ -78,7 +78,7 @@ Page({
                       }
                       wx.showToast({
                         title: title,
-                        image: '../../icon/error.png'
+                        image: '../icon/error.png'
                       })
                     } else {
                       wx.request({

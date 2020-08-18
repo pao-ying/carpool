@@ -1,5 +1,5 @@
 // pages/carpool/team/team.js
-var util = require('../../../utils/util.js')
+var util = require('../utils/util.js')
 Page({
 
   /**
@@ -64,7 +64,7 @@ Page({
               }
               wx.showToast({
                 title: title,
-                image: '../../icon/error.png',
+                image: '../icon/error.png',
                 mask: true,
                 duration: 1000,
                 success() {
@@ -187,7 +187,7 @@ Page({
             } else {
               wx.showToast({
                 title: '没有权限',
-                image: '../../icon/error.png'
+                image: '../icon/error.png'
               })
             }
           }
