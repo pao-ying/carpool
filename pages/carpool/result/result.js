@@ -43,75 +43,80 @@ Page({
 
   joinTeam: function(e) {
     console.log(e)
-    var teamID = this.data.info[e.currentTarget.dataset.index].teamID;
-    wx.getStorage({
-      key: 'userID',
-      success(res) {
-        var userID = res.data;
-        wx.showModal({
-          title: '加入队伍',
-          content: '您确定加入该队伍嘛？',
-          success(res) {
-            if (res.confirm) {
-              wx.request({
-                url: 'http://39.100.192.205:5000/team/join',
-                header: {
-                  'Content-Type': 'application/json'
-                },
-                data: {
-                  userID: userID,
-                  teamID: teamID
-                },
-                success: function(res) {
-                  var 
-                      info = res.data,
-                      title = "";
-                  if (!info.status) {
-                    if (info.error === "user had team") {
-                      title = "已有队伍";
-                    } else if (info.error === "team is not exists") {
-                      title = "队员已满";
-                    } else {
-                      title = "其他错误";
-                    }
-                    wx.showToast({
-                      title: title,
-                      image: '../../icon/error.png'
-                    })
-                  } else {
-                    wx.request({
-                      url: 'http://39.100.192.205:5000/user/team',
-                      header: {
-                        'Content-Type': 'application/json'
-                      },
-                      data: {
-                        userID: userID
-                      },
-                      success: function(res) {
-                        console.log(res.data)
-                        if (!res.data.isTeam) {
-                          wx.navigateTo({
-                            url: '../team/team?isTeam=0'
-                          });
-                        } else {
-                          wx.navigateTo({
-                            url: '../team/team?team=' + JSON.stringify(res.data.team) + 
-                            '&members=' + JSON.stringify(res.data.members) + 
-                            '&notices=' + JSON.stringify(res.data.notices) + 
-                            '&isTeam=1'
-                          })
-                        }                        
+    var that = this;
+    return new Promise(function() {
+      var teamID = that.data.info[e.currentTarget.dataset.index].teamID;
+      wx.getStorage({
+        key: 'userID',
+        success(res) {
+          var userID = res.data;
+          wx.showModal({
+            title: '加入队伍',
+            content: '您确定加入该队伍嘛？',
+            success(res) {
+              if (res.confirm) {
+                wx.request({
+                  url: 'http://39.100.192.205:5000/team/join',
+                  header: {
+                    'Content-Type': 'application/json'
+                  },
+                  data: {
+                    userID: userID,
+                    teamID: teamID
+                  },
+                  success: function(res) {
+                    var 
+                        info = res.data,
+                        title = "";
+                    if (!info.status) {
+                      if (info.error === "user had team") {
+                        title = "已有队伍";
+                      } else if (info.error === "team is not exists") {
+                        title = "队员已满";
+                      } else {
+                        title = "其他错误";
                       }
-                    })
+                      wx.showToast({
+                        title: title,
+                        image: '../../icon/error.png'
+                      })
+                    } else {
+                      wx.request({
+                        url: 'http://39.100.192.205:5000/user/team',
+                        header: {
+                          'Content-Type': 'application/json'
+                        },
+                        data: {
+                          userID: userID
+                        },
+                        success: function(res) {
+                          console.log(res.data)
+                          if (!res.data.isTeam) {
+                            wx.navigateTo({
+                              url: '../team/team?isTeam=0'
+                            });
+                          } else {
+                            wx.navigateTo({
+                              url: '../team/team?team=' + JSON.stringify(res.data.team) + 
+                              '&members=' + JSON.stringify(res.data.members) + 
+                              '&notices=' + JSON.stringify(res.data.notices) + 
+                              '&isTeam=1'
+                            })
+                          }                        
+                        }
+                      })
+                      
+                    }
+                    
                   }
-                  
-                }
-              })
+                })
+              }
             }
-          }
-        })
-      }
+          })
+        }
+      })
     })
+
   },
 
   setShow: function(e) {

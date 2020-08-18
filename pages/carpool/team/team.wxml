@@ -122,5 +122,8 @@
                 <view class="create-button-words">创建队伍</view>
             </view>  
         </view>
+        <view class="fresh-area">
+            <view class="fresh-words">下拉刷新</view>
+        </view>
     </view>
 </block>

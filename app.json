@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/login/login",   
+    
     "pages/carpool/search/search",
     "pages/carpool/notice/notice",
-    
+    "pages/login/login",   
 
     "pages/test/test",
     "pages/test/test0/test0",

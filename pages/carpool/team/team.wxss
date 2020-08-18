@@ -415,3 +415,17 @@
     left:10rpx;
     z-index: -1;
 }
+
+.fresh-area {
+    position: relative;
+    width: 150rpx;
+    top: 20rpx;
+    height: 50rpx;
+    left: 300rpx;
+}
+
+.fresh-words {
+    font-size: 25rpx;
+    opacity: 0.55;
+    letter-spacing: 4.4rpx;
+}

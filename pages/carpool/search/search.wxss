@@ -49,6 +49,14 @@
     /* border: 1rpx solid; */
 }
 
+.badge {
+    position: relative;
+    top: -30rpx;
+    left: -35rpx;
+    /* top: 10rpx;
+    left: 200rpx; */
+}
+
 .words-area {
     display: flex;
     margin-top: 40rpx;

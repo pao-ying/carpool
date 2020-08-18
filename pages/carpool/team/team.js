@@ -89,7 +89,7 @@ Page({
                       duration: 1000,
                       success() {
                         setTimeout(() => {
-                          wx.redirectTo({
+                          wx.reLaunch({
                             url: '../search/search'
                           })
                         }, 1000)    
@@ -268,6 +268,7 @@ Page({
    */
   onLoad: function (options) {
     console.log('load')
+    console.log(options)
     var isTeam = options.isTeam;
     // console.log(options)
     if (isTeam == 1) {
@@ -342,6 +343,7 @@ Page({
       key: 'userID',
       success(res) {
         var userID = res.data;
+        console.log(userID)
         wx.request({
           url: 'http://39.100.192.205:5000/user/team',
           header: {

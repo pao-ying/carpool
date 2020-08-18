@@ -28,37 +28,55 @@ Page({
   },
 
   goTeam: function(e) {
-    wx.getStorage({
-      key: 'userID',
-      success(res) {
-        var userID = res.data;
-        wx.request({
-          url: 'http://39.100.192.205:5000/user/team',
-          header: {
-            'Content-Type': 'application/json'
-          },
-          data: {
-            userID: userID
-          },
-          success: function(res) {
-            console.log(res.data)
-            if (!res.data.isTeam) {
-              wx.navigateTo({
-                url: '../team/team?isTeam=0'
-              });
-            } else {
-              wx.navigateTo({
-                url: '../team/team?team=' + JSON.stringify(res.data.team) + 
-                      '&members=' + JSON.stringify(res.data.members) + 
-                      '&notices=' + JSON.stringify(res.data.notices) + 
-                      '&isTeam=1'
-              })
+    var that = this;
+    return new Promise(function() {
+      
+      wx.getStorage({
+        key: 'userID',
+        success(res) {
+          var userID = res.data;
+          wx.request({
+            url: 'http://39.100.192.205:5000/user/team',
+            header: {
+              'Content-Type': 'application/json'
+            },
+            data: {
+              userID: userID
+            },
+            success: function(res) {
+              console.log(res.data)
+              if (!res.data.isTeam) {
+                wx.navigateTo({
+                  url: '../team/team?isTeam=0'
+                });
+              } else {
+                wx.navigateTo({
+                  url: '../team/team?team=' + JSON.stringify(res.data.team) + 
+                        '&members=' + JSON.stringify(res.data.members) + 
+                        '&notices=' + JSON.stringify(res.data.notices) + 
+                        '&isTeam=1'
+                });
+                wx.request({
+                  url: 'http://39.100.192.205:5000/user/notNotice',
+                  header: {
+                    'Content-Type': 'application/json'
+                  },
+                  data: {
+                    userID: userID
+                  },
+                  success: function(res) {
+                    that.setData({
+                      isNotice: false
+                    })
+                  }
+                })
+              }
             }
-
-          }
-        })
-      }
+          })
+        }
+      })
     })
+
   },
 
   goNotice: function(e) {
@@ -217,6 +235,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    return new Promise(function() {
+      wx.getStorage({
+        key: 'userID',
+        success(res) {
+          var userID = res.data;
+          wx.request({
+            url: 'http://39.100.192.205:5000/user/isNotice',
+            header: {
+              'Content-Type': 'application/json'
+            },
+            data: {
+              userID: userID
+            },
+            success: function(res) {
+              console.log(res)
+              that.setData({
+                isNotice: res.data.status
+              })
+            }
+          })
+        }
+      })
+    })
+
   },
 
   /**
@@ -251,7 +294,28 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var that = this;
+    wx.getStorage({
+      key: 'userID',
+      success(res) {
+        var userID = res.data;
+        wx.request({
+          url: 'http://39.100.192.205:5000/user/isNotice',
+          header: {
+            'Content-Type': 'application/json'
+          },
+          data: {
+            userID: userID
+          },
+          success: function(res) {
+            console.log(res)
+            that.setData({
+              isNotice: res.data.status
+            })
+          }
+        })
+      }
+    })
   },
 
   /**

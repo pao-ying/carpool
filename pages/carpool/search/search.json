@@ -1,5 +1,10 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-badge": "weui-miniprogram/badge/badge"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#F5F5F5",
   "navigationBarBackgroundColor": "#17BC9B",
   "navigationBarTitleText": "拼车服务"
 }

@@ -10,6 +10,7 @@
     <view class="two-icon">
         <view class="iconfont icon-zhuyi" bind:tap="goNotice"></view>
         <view class="iconfont icon-team" bind:tap="goTeam"></view>
+        <block wx:if="{{isNotice}}"><mp-badge class="badge" /></block>
     </view>
 </view>
 
